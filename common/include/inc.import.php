@@ -90,8 +90,9 @@ if($_SESSION[$_SESSION["CFGURL"]][ssuser_nivel]=='1'){
 				foreach( $liste as $value ) {
 					$value = trim($value) ;
 					if ( $value == $terme ) continue ;
-					//$encoded_value = ( $CFG["_CHAR_ENCODE"] == "utf-8" ) ? $value : utf8_decode($value) ;
-					$encoded_value = utf8_decode($value) ;
+					$encoded_value = ( $CFG["_CHAR_ENCODE"] == "utf-8" ) ? $value : utf8_decode($value) ;
+					//$encoded_value = utf8_decode($value) ;
+					// comment previous line to fix bug encodage import
 					$id_equ = abm_tema('alta',$encoded_value) ;
 					//$equ_relacion = do_r($id_equ,$new_termino,"4") ;
 					$to_do[] = $id_equ."|".$new_termino."|4" ;
